@@ -1,0 +1,392 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  font-size: 62.5%;
+}
+
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: #eee;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/* 
+0 - 600px: Phone
+600 - 900px: Tablet Portrait
+900 - 1200px:  Tablet Landscape
+1200 - 1800px: Desktop
+1800px+ : Big Desk
+*/
+/*
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop 
+*/
+img {
+  display: inline-block;
+}
+
+.checkout__Container {
+  background-color: #fff;
+  width: 90%;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  margin: 2rem;
+  padding: 5rem;
+  border-radius: 6px;
+  -webkit-box-shadow: 3px 3px 2px 0px rgba(50, 50, 50, 0.21);
+          box-shadow: 3px 3px 2px 0px rgba(50, 50, 50, 0.21);
+}
+
+.logo {
+  width: 7%;
+}
+
+.blankSpace {
+  width: 7%;
+  background-color: transparent;
+  height: 2rem;
+}
+
+.gambiarra {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (max-width: 56.25em) {
+  .gambiarra {
+    margin: 5rem 0;
+  }
+}
+
+.gambiarra .checkout__Nav-item--active {
+  color: #fd435b;
+  font-weight: 400;
+  border-bottom: 1px solid #fd435b;
+}
+
+.checkout__Nav {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1.9rem;
+}
+
+@media (max-width: 56.25em) {
+  .checkout__Nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.checkout__Nav a {
+  text-decoration: none;
+  color: #aaaaaa;
+  font-weight: 100;
+  border-bottom: 1px solid #aaaaaa;
+  padding: .6rem 3rem;
+}
+
+.checkout__PaymentSelection {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: max-content;
+      grid-template-rows: -webkit-max-content;
+      grid-template-rows: max-content;
+  margin-top: 7rem;
+}
+
+@media (max-width: 56.25em) {
+  .checkout__PaymentSelection {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+.checkout__PaymentSelection-cardContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.checkout__PaymentSelection-details {
+  text-align: center;
+}
+
+@media (max-width: 56.25em) {
+  .checkout__PaymentSelection-details {
+    padding-top: 3rem;
+  }
+}
+
+.creditCardTemplateHoverActive .creditCardTemplate--back {
+  -webkit-transform: perspective(500px) rotateY(0);
+          transform: perspective(500px) rotateY(0);
+}
+
+.creditCardTemplateHoverActive .creditCardTemplate--front {
+  -webkit-transform: perspective(500px) rotateY(-180deg);
+          transform: perspective(500px) rotateY(-180deg);
+}
+
+.creditCardTemplate {
+  width: 40rem;
+  height: 25rem;
+  position: relative;
+}
+
+.creditCardTemplate img {
+  display: block;
+}
+
+.creditCardTemplate--front, .creditCardTemplate--back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-perspective: 2px;
+          perspective: 2px;
+  -webkit-transition: -webkit-transform .7s ease-out;
+  transition: -webkit-transform .7s ease-out;
+  transition: transform .7s ease-out;
+  transition: transform .7s ease-out, -webkit-transform .7s ease-out;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.creditCardTemplate--front {
+  background-color: #fd435b;
+  -webkit-transform: perspective(500px) rotateY(0);
+          transform: perspective(500px) rotateY(0);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 2.5rem;
+  color: #fff;
+}
+
+.creditCardTemplate--back {
+  background-color: #eee;
+  -webkit-transform: perspective(500px) rotateY(180deg);
+          transform: perspective(500px) rotateY(180deg);
+}
+
+.creditCardTemplate-chip {
+  width: 13%;
+}
+
+.creditCardTemplate-logo {
+  width: 19%;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.creditCardTemplate-cardNumber {
+  font-size: 3rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.creditCardTemplate-expDate {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.creditCardTemplate-expDate div {
+  display: inline;
+}
+
+.creditCardTemplate-cardHolder {
+  text-transform: uppercase;
+  -webkit-transform: translateY(16px);
+          transform: translateY(16px);
+}
+
+.creditCardTemplate--back-stripe {
+  width: 100%;
+  height: 6rem;
+  background-color: #303030;
+  margin-top: 4rem;
+}
+
+.creditCardTemplate-cvc {
+  background-color: #fff;
+  width: 80%;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  margin: 2rem auto;
+  text-align: right;
+}
+
+.paymentForm {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -webkit-column-gap: 25px;
+          column-gap: 25px;
+  margin-top: 3.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  row-gap: 25px;
+  text-align: start;
+  width: 60%;
+}
+
+@media (max-width: 75em) {
+  .paymentForm {
+    width: 70%;
+  }
+}
+
+.paymentForm button {
+  grid-column: 1 / -1;
+  width: 60%;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background-color: #fd435b;
+  border: none;
+  border-radius: 12px;
+}
+
+.paymentForm-input {
+  grid-column: 1 / -1;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  color: #464646;
+}
+
+.paymentForm-input:nth-of-type(3) {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+}
+
+.paymentForm-input:nth-of-type(4) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+}
+
+.paymentForm-input:nth-of-type(5) {
+  grid-column: 3 / -1;
+}
+
+.paymentForm-input:nth-of-type(3) input, .paymentForm-input:nth-of-type(4) input, .paymentForm-input:nth-of-type(5) input {
+  text-align: center;
+}
+
+.paymentForm-input input {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  padding: .5rem 2rem;
+  border: none;
+  border-bottom: 1px solid #fd435b;
+  -webkit-transition: -webkit-transform .1s ease-out;
+  transition: -webkit-transform .1s ease-out;
+  transition: transform .1s ease-out;
+  transition: transform .1s ease-out, -webkit-transform .1s ease-out;
+}
+
+.paymentForm-input input:focus {
+  outline: none;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.paymentFormTotal {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #3d3d3d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.paymentFormTotal span {
+  color: #fd435b;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+
+.botaoTest {
+  width: 5rem;
+  height: 5rem;
+  background-color: red;
+  cursor: pointer;
+}
+/*# sourceMappingURL=main.css.map */

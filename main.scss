@@ -1,0 +1,349 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) { @content }; // 600px 
+    }
+
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em ) { @content }; // 900px
+    }
+
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em ) { @content }; // 1200px
+    }
+
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) { @content }; // 1800px
+    }
+}
+
+html {
+    box-sizing: inherit;
+    font-size: 62.5%;
+
+    @include respond(tab-port) {
+        font-size: 50%;
+    }
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+/* 
+0 - 600px: Phone
+600 - 900px: Tablet Portrait
+900 - 1200px:  Tablet Landscape
+1200 - 1800px: Desktop
+1800px+ : Big Desk
+*/
+
+/*
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop 
+*/
+
+
+
+img {
+    display: inline-block;
+    @include respond(tab-land) {
+        
+    }
+}
+
+.checkout__Container {
+    background-color: #fff;
+    width: 90%;
+    height: min-content;
+    margin: 2rem;
+    padding: 5rem;
+    border-radius: 6px;
+    box-shadow:         3px 3px 2px 0px rgba(50, 50, 50, 0.21);
+}
+
+.logo {
+    width: 7%;
+}
+.blankSpace {
+    width: 7%;
+    background-color: transparent;
+    height: 2rem;
+}
+
+.gambiarra {
+    display: flex;
+
+    @include respond(tab-port) {
+        
+        margin: 5rem 0;
+    }
+
+    .checkout__Nav-item--active {
+        color: rgb(253,67,91);
+        font-weight: 400;
+        border-bottom: 1px solid rgb(253,67,91);
+    }
+}
+
+.checkout {
+    &__Nav {
+        width: 100%;
+        display: flex;
+        margin: 0;
+        align-items: flex-end;
+        justify-content: space-between;
+        font-size: 1.9rem;
+        @include respond(tab-port) {
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        a {
+            text-decoration: none;
+            color: rgb(170, 170, 170);
+            font-weight: 100;
+            border-bottom: 1px solid rgb(170, 170, 170);
+            padding: .6rem 3rem; 
+        }
+
+
+    }
+}
+
+.checkout__PaymentSelection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content;
+    margin-top: 7rem;
+    @include respond(tab-port) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.checkout__PaymentSelection-cardContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.checkout__PaymentSelection-details {
+    text-align: center;
+    @include respond(tab-port) {
+        padding-top: 3rem;
+    }
+}
+
+.creditCardTemplateHoverActive {
+    
+        .creditCardTemplate--back {
+            transform: perspective(500px) rotateY(0);
+        }
+
+        .creditCardTemplate--front {
+            transform: perspective(500px) rotateY(-180deg);
+        }
+    
+}
+
+.creditCardTemplate {
+    
+    width: 40rem;
+    height: 25rem;
+    position: relative;
+    
+    img {
+        display: block;
+    }
+
+    
+
+    &--front,
+    &--back {
+        width: 100%;
+        height: 100%;
+        position: absolute;  
+        backface-visibility: hidden;
+        perspective: 2px;
+        transition: transform .7s ease-out;
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    &--front {
+      
+        background-color: rgb(253,67,91);
+        transform: perspective(500px) rotateY(0);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 2.5rem;
+        color: #fff;
+    }
+
+    &--back {
+        background-color: #eee;
+        transform: perspective(500px) rotateY(180deg);
+    }
+}
+
+.creditCardTemplate-chip {
+    width: 13%;
+   // position: absolute;
+   // top: 27%;
+   // left: 5%;
+}
+
+.creditCardTemplate-logo {
+    width: 19%;
+    align-self: flex-end;
+    //position: absolute;
+   // top: 10%;
+    //left: 75%;
+}
+
+.creditCardTemplate-cardNumber {
+    font-size: 3rem;
+    align-self: center;
+}
+
+.creditCardTemplate-expDate {
+align-self: center;
+    div {
+        display: inline;
+    }
+}
+
+.creditCardTemplate-cardHolder {
+    text-transform: uppercase;
+    transform: translateY(16px);
+}
+
+.creditCardTemplate--back-stripe {
+    width: 100%;
+    height: 6rem;
+    background-color: rgb(48, 48, 48);
+    margin-top: 4rem;
+}
+
+.creditCardTemplate-cvc {
+    background-color: #fff;
+    width: 80%;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    margin: 2rem auto;
+    text-align: right;
+}
+
+.paymentForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 25px;
+    margin-top: 3.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    row-gap: 25px;
+    text-align: start;
+    width: 60%;
+
+    @include respond(tab-land) {
+        width: 70%;
+    }
+
+    button {
+        grid-column: 1 / -1;
+        width: 60%;
+        margin: 0 auto;
+        padding: 1.5rem 2rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+        background-color: rgb(253,67,91);
+        border: none;
+        border-radius: 12px;
+    }
+    &-input {
+        grid-column: 1 / -1;
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        color: rgb(70, 70, 70);
+        &:nth-of-type(3) {
+            grid-column: 1 / 2;
+        }
+
+        &:nth-of-type(4) {
+            grid-column: 2 / 3;
+        }
+
+        &:nth-of-type(5) {
+            grid-column: 3 / -1;
+        }
+
+        &:nth-of-type(3),
+        &:nth-of-type(4),
+        &:nth-of-type(5) {
+
+            input {
+                text-align: center;
+            }
+            
+        }
+
+
+        input {
+            display: block;
+            width: 100%;
+            margin-top: 1rem;
+            padding: .5rem 2rem;
+            border: none;
+            border-bottom: 1px solid rgb(253,67,91);
+            transition: transform .1s ease-out;
+            &:focus {
+                outline: none;
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+.paymentFormTotal {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: rgb(61, 61, 61);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+        color: rgb(253,67,91);
+        font-size: 2rem;
+        font-weight: 600;
+        margin-left: 1rem;
+    }
+}
+
+.botaoTest {
+    width: 5rem;
+    height: 5rem;
+    background-color: red;
+    cursor: pointer;
+}

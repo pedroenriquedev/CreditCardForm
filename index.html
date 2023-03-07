@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+    <title>Form 4</title>
+</head>
+<body>
+    <div class="checkout__Container">
+        
+        <div class="checkout__Nav">
+            <img src="logo.svg" alt="" class="logo">
+            
+            <div class="gambiarra">
+                <a href="" class="checkout__Nav-item">Costumer info</a>
+                <a href="" class="checkout__Nav-item">Shiping info</a>
+                <a href="" class="checkout__Nav-item checkout__Nav-item--active">Payment selection</a>
+            </div>
+            
+            <div class="blankSpace"></div>
+        </div>
+        
+        <div class="checkout__PaymentSelection">
+            <div class="checkout__PaymentSelection-cardContainer">
+                <div class="creditCardTemplate  " id="creditCardTemplate">
+                    <div class="creditCardTemplate--front">
+
+                        <img src="creditCardLogo.png" alt="" class="creditCardTemplate-logo">
+                        <img src="creditCardChip.png" alt="" class="creditCardTemplate-chip">
+                        
+                        <div class="creditCardTemplate-cardNumber" id="card1Number">
+                            4482 5654 4568 9135
+                        </div>
+
+                        <div class="creditCardTemplate-expDate">
+                            <div id="cardMonth">08</div>/<div id="cardYear">2020</div>
+                        </div>
+
+                        <div class="creditCardTemplate-cardHolder" id="cardName">
+                                card holder name
+                        </div>
+
+
+                    </div>
+                    
+                    <div class="creditCardTemplate--back">
+                        <div class="creditCardTemplate--back-stripe">
+                            
+                        </div>
+                        <div class="creditCardTemplate-cvc" id="creditCardCvc">
+                            &nbsp;
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>    
+            <div class="checkout__PaymentSelection-details">
+                <h3>Payment details</h3>
+                
+                <form action="" class="paymentForm">
+                    <label for="cardholderName" class="paymentForm-input">
+                        cardholder name
+                        <input type="text" id="cardholderName">
+                    </label>
+                    
+                    <label for="cardNumber" class="paymentForm-input">
+                        card number
+                        <input type="text" id="cardNumber" maxlength="19">
+                    </label>    
+                    
+                    <label for="cardExpiryMoonth" class="paymentForm-input">
+                        expiry month
+                        <input type="text" id="cardExpiryMonth" maxlength="2">
+                    </label>
+                    
+                    <label for="cardExpiryYear" class="paymentForm-input">
+                        expiry year
+                        <input type="text" id="cardExpiryYear" maxlength="4">
+                    </label>
+                    
+                    <label for="cardVerificationCode" class="paymentForm-input">
+                        cvc
+                        <input type="text" id="cardVerificationCode" maxlength="3">
+                    </label>
+                    
+                    <div class="paymentFormTotal">
+                        Payment amount: <span>$12 300</span>
+                    </div>
+                    
+                    <button>
+                        Pay
+                    </button>
+                    
+                </form>
+                
+            </div>
+        </div>
+        
+    </div>
+    <script src="main.js"></script>
+
+</body>
+</html>
