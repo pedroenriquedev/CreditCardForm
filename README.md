@@ -4,7 +4,7 @@ Form design I found on Dribbble used to practice my CSS skills. Design used for 
 
 ## Tech Stack
 
-HTML and SASS.
+HTML, SASS and JavaScript.
 
 ## Live Demo
 
