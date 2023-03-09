@@ -16,7 +16,12 @@ cvcInput.addEventListener("input", function () {
 });
 
 cardholderNameInput.addEventListener("input", function () {
-  lettersOnly(this);
+  if (this.value !== "") {
+    lettersOnly(this);
+    document.getElementById("cardName").textContent = this.value;
+  } else {
+    document.getElementById("cardName").innerHTML = "&nbsp;";
+  }
 });
 
 document.getElementById("cardNumber").addEventListener("input", function () {
