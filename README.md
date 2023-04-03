@@ -8,7 +8,7 @@ HTML, SASS and JavaScript.
 
 ## Live Demo
 
-www.tobeworked.com
+https://pedroenriquedev.github.io/CreditCardForm/
 
 #### Showcase
 
